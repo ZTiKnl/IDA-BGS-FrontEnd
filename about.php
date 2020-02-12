@@ -5,33 +5,18 @@ $pagetitle = 'About IDA';
 include('../private/db.inc.php');
 $con = mysqli_connect($servername,$username,$password,$database) or die("SQL connection error");
 
-$oldtick = '';
-$oldtickid = 0;
-$newtick = '';
-$newtickid = 0;
+// include config variables
+include('config.inc.php');
 
-$tickquery = "SELECT id, timestamp FROM dailyticks ORDER BY id DESC LIMIT 2";
-if ($tickresult = mysqli_query($con, $tickquery)){
-  if (mysqli_num_rows($tickresult) === 2) {
-    $i = 0;
-    $rows = array();
-    while($row = mysqli_fetch_array($tickresult, MYSQLI_ASSOC)) {
-      $rows[$i]['id'] = $row['id'];
-      $rows[$i]['timestamp'] = $row['timestamp'];
-      $i++;
-    }
-    $newtick = $rows[0]['timestamp'];
-    $newtickid = $rows[0]['id'];
-    $oldtick = $rows[1]['timestamp'];
-    $oldtickid = $rows[1]['id'];
-  } elseif (mysqli_num_rows($tickresult) === 1) {
-    $row = mysqli_fetch_array($tickresult, MYSQLI_ASSOC);
-    $newtick = $row['timestamp'];
-    $newtickid = $row['id'];
-  }
-}
+// connect to db
+include($securedbcreds);
+$con = mysqli_connect($servername,$username,$password,$database) or die("SQL connection error");
 
-$servertime = gmdate("Y-m-d H:i:s");
+// include php functions
+include('functions.inc.php');
+
+// include tickdata
+include('tickdata.inc.php');
 ?>
 
 <!DOCTYPE html>
@@ -136,7 +121,6 @@ Ps: If you are here looking to repair stations, you are in the wrong place, this
 
       </div>
     </div>
-    <?PHP include('footer.inc.php'); ?>
-    </div>
+  </div>
 </body>
 </html>
