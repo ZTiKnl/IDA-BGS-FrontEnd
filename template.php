@@ -1,8 +1,11 @@
 <?PHP
 $pagetitle = 'template.php';
 
+// include config variables
+include('config.inc.php');
+
 // connect to db
-include('../private/db.inc.php');
+include($securedbcreds);
 $con = mysqli_connect($servername,$username,$password,$database) or die("SQL connection error");
 
 // include php functions
@@ -400,6 +403,6 @@ document.getElementById("defaultTab").click();
       </div>
     </div>
     <?PHP include('footer.inc.php'); ?>
-    </div>
+  </div>
 </body>
 </html>
