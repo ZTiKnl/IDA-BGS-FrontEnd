@@ -1,14 +1,11 @@
 <?PHP
 $pagetitle = 'System overview';
 
-if (!empty($_GET['id'])) {
-  $systemget = $_GET['id'];
-} else {
-  $systemget = '5068196095409';
-}
+// include config variables
+include('config.inc.php');
 
 // connect to db
-include('../private/db.inc.php');
+include($securedbcreds);
 $con = mysqli_connect($servername,$username,$password,$database) or die("SQL connection error");
 
 // include php functions
@@ -16,6 +13,13 @@ include('functions.inc.php');
 
 // include tickdata
 include('tickdata.inc.php');
+
+// Page specific stuff
+if (!empty($_GET['id'])) {
+  $systemget = $_GET['id'];
+} else {
+  $systemget = '5068196095409';
+}
 ?>
 
 <!DOCTYPE html>
@@ -223,7 +227,7 @@ if (!$updatedaftertick ) {
 $factioncount = count($systemfactiondataarray);
 $factioncounter = 0;
 while($factioncounter < $factioncount) {
-  if ($systemfactiondataarray[$factioncounter]['Name'] == 'Independent Defence Agency') {
+  if ($systemfactiondataarray[$factioncounter]['Name'] == addslashes($highlight_pmfname)) {
     echo "[
 {v: '".addslashes($systemfactiondataarray[$factioncounter]['Name'])."', p: {'className': 'highlightcol'}}, 
 {v: '".$systemfactiondataarray[$factioncounter]['Government']."', p: {'className': 'highlightcol'}}, 
@@ -303,281 +307,281 @@ while($factioncounter < $factioncount) {
         data.addRows([
 
 <?PHP
-$factioncount = count($systemstatesdataarray);
-$factioncounter = 0;
+$statecount = count($systemstatesdataarray);
+$statecounter = 0;
 $pendingstates = array();
 $activestates = array();
 $recoveringstates = array();
-while($factioncounter < $factioncount) {
-  if ($systemstatesdataarray[$factioncounter]['stateBlight'] == 1) {
+while($statecounter < $statecount) {
+  if ($systemstatesdataarray[$statecounter]['stateBlight'] == 1) {
     $activestates[] = 'Blight';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateBoom'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateBoom'] == 1) {
     $activestates[] = 'Boom';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateBust'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateBust'] == 1) {
     $activestates[] = 'Bust';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateCivilLiberty'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateCivilLiberty'] == 1) {
     $activestates[] = 'Civil Liberty';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateCivilUnrest'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateCivilUnrest'] == 1) {
     $activestates[] = 'Civil Unrest';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateCivilWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateCivilWar'] == 1) {
     $activestates[] = 'Civil War';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateColdWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateColdWar'] == 1) {
     $activestates[] = 'Cold War';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateColonisation'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateColonisation'] == 1) {
     $activestates[] = 'Colonisation';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateDamaged'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateDamaged'] == 1) {
     $activestates[] = 'Damaged';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateDrought'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateDrought'] == 1) {
     $activestates[] = 'Drought';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateElection'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateElection'] == 1) {
     $activestates[] = 'Election';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateExpansion'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateExpansion'] == 1) {
     $activestates[] = 'Expansion';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateFamine'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateFamine'] == 1) {
     $activestates[] = 'Famine';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateHistoricEvent'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateHistoricEvent'] == 1) {
     $activestates[] = 'HistoricEvent';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateInfrastructureFailure'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateInfrastructureFailure'] == 1) {
     $activestates[] = 'Infrastructure Failure';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateInvestment'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateInvestment'] == 1) {
     $activestates[] = 'Investment';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateLockdown'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateLockdown'] == 1) {
     $activestates[] = 'Lockdown';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateNaturalDisaster'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateNaturalDisaster'] == 1) {
     $activestates[] = 'Natural Disaster';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateOutbreak'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateOutbreak'] == 1) {
     $activestates[] = 'Outbreak';
   }
-  if ($systemstatesdataarray[$factioncounter]['statePirateAttack'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['statePirateAttack'] == 1) {
     $activestates[] = 'Pirate Attack';
   }
-  if ($systemstatesdataarray[$factioncounter]['statePublicHoliday'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['statePublicHoliday'] == 1) {
     $activestates[] = 'Public Holiday';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateRetreat'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateRetreat'] == 1) {
     $activestates[] = 'Retreat';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateRevolution'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateRevolution'] == 1) {
     $activestates[] = 'Revolution';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateTechnologicalLeap'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateTechnologicalLeap'] == 1) {
     $activestates[] = 'Technological Leap';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateTerroristAttack'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateTerroristAttack'] == 1) {
     $activestates[] = 'Terrorist Attack';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateTradeWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateTradeWar'] == 1) {
     $activestates[] = 'Trade War';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateUnderRepairs'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateUnderRepairs'] == 1) {
     $activestates[] = 'Under Repairs';
   }
-  if ($systemstatesdataarray[$factioncounter]['stateWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['stateWar'] == 1) {
     $activestates[] = 'War';
   }
 
-  if ($systemstatesdataarray[$factioncounter]['recBlight'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recBlight'] == 1) {
     $recoveringstates[] = 'Blight';
   }
-  if ($systemstatesdataarray[$factioncounter]['recBoom'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recBoom'] == 1) {
     $recoveringstates[] = 'Boom';
   }
-  if ($systemstatesdataarray[$factioncounter]['recBust'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recBust'] == 1) {
     $recoveringstates[] = 'Bust';
   }
-  if ($systemstatesdataarray[$factioncounter]['recCivilLiberty'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recCivilLiberty'] == 1) {
     $recoveringstates[] = 'Civil Liberty';
   }
-  if ($systemstatesdataarray[$factioncounter]['recCivilUnrest'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recCivilUnrest'] == 1) {
     $recoveringstates[] = 'Civil Unrest';
   }
-  if ($systemstatesdataarray[$factioncounter]['recCivilWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recCivilWar'] == 1) {
     $recoveringstates[] = 'Civil War';
   }
-  if ($systemstatesdataarray[$factioncounter]['recColdWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recColdWar'] == 1) {
     $recoveringstates[] = 'Cold War';
   }
-  if ($systemstatesdataarray[$factioncounter]['recColonisation'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recColonisation'] == 1) {
     $recoveringstates[] = 'Colonisation';
   }
-  if ($systemstatesdataarray[$factioncounter]['recDamaged'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recDamaged'] == 1) {
     $recoveringstates[] = 'Damaged';
   }
-  if ($systemstatesdataarray[$factioncounter]['recDrought'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recDrought'] == 1) {
     $recoveringstates[] = 'Drought';
   }
-  if ($systemstatesdataarray[$factioncounter]['recElection'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recElection'] == 1) {
     $recoveringstates[] = 'Election';
   }
-  if ($systemstatesdataarray[$factioncounter]['recExpansion'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recExpansion'] == 1) {
     $recoveringstates[] = 'Expansion';
   }
-  if ($systemstatesdataarray[$factioncounter]['recFamine'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recFamine'] == 1) {
     $recoveringstates[] = 'Famine';
   }
-  if ($systemstatesdataarray[$factioncounter]['recHistoricEvent'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recHistoricEvent'] == 1) {
     $recoveringstates[] = 'Historic Event';
   }
-  if ($systemstatesdataarray[$factioncounter]['recInfrastructureFailure'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recInfrastructureFailure'] == 1) {
     $recoveringstates[] = 'Infrastructure Failure';
   }
-  if ($systemstatesdataarray[$factioncounter]['recInvestment'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recInvestment'] == 1) {
     $recoveringstates[] = 'Investment';
   }
-  if ($systemstatesdataarray[$factioncounter]['recLockdown'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recLockdown'] == 1) {
     $recoveringstates[] = 'Lockdown';
   }
-  if ($systemstatesdataarray[$factioncounter]['recNaturalDisaster'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recNaturalDisaster'] == 1) {
     $recoveringstates[] = 'Natural Disaster';
   }
-  if ($systemstatesdataarray[$factioncounter]['recOutbreak'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recOutbreak'] == 1) {
     $recoveringstates[] = 'Outbreak';
   }
-  if ($systemstatesdataarray[$factioncounter]['recPirateAttack'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recPirateAttack'] == 1) {
     $recoveringstates[] = 'Pirate Attack';
   }
-  if ($systemstatesdataarray[$factioncounter]['recPublicHoliday'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recPublicHoliday'] == 1) {
     $recoveringstates[] = 'Public Holiday';
   }
-  if ($systemstatesdataarray[$factioncounter]['recRetreat'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recRetreat'] == 1) {
     $recoveringstates[] = 'Retreat';
   }
-  if ($systemstatesdataarray[$factioncounter]['recRevolution'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recRevolution'] == 1) {
     $recoveringstates[] = 'Revolution';
   }
-  if ($systemstatesdataarray[$factioncounter]['recTechnologicalLeap'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recTechnologicalLeap'] == 1) {
     $recoveringstates[] = 'Technological Leap';
   }
-  if ($systemstatesdataarray[$factioncounter]['recTerroristAttack'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recTerroristAttack'] == 1) {
     $recoveringstates[] = 'Terrorist Attack';
   }
-  if ($systemstatesdataarray[$factioncounter]['recTradeWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recTradeWar'] == 1) {
     $recoveringstates[] = 'Trade War';
   }
-  if ($systemstatesdataarray[$factioncounter]['recUnderRepairs'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recUnderRepairs'] == 1) {
     $recoveringstates[] = 'Under Repairs';
   }
-  if ($systemstatesdataarray[$factioncounter]['recWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['recWar'] == 1) {
     $recoveringstates[] = 'War';
   }
 
-  if ($systemstatesdataarray[$factioncounter]['pendingBlight'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingBlight'] == 1) {
     $pendingstates[] = 'Blight';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingBoom'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingBoom'] == 1) {
     $pendingstates[] = 'Boom';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingBust'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingBust'] == 1) {
     $pendingstates[] = 'Bust';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingCivilLiberty'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingCivilLiberty'] == 1) {
     $pendingstates[] = 'Civil Liberty';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingCivilUnrest'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingCivilUnrest'] == 1) {
     $pendingstates[] = 'Civil Unrest';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingCivilWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingCivilWar'] == 1) {
     $pendingstates[] = 'Civil War';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingColdWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingColdWar'] == 1) {
     $pendingstates[] = 'Cold War';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingColonisation'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingColonisation'] == 1) {
     $pendingstates[] = 'Colonisation';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingDamaged'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingDamaged'] == 1) {
     $pendingstates[] = 'Damaged';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingDrought'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingDrought'] == 1) {
     $pendingstates[] = 'Drought';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingElection'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingElection'] == 1) {
     $pendingstates[] = 'Election';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingExpansion'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingExpansion'] == 1) {
     $pendingstates[] = 'Expansion';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingFamine'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingFamine'] == 1) {
     $pendingstates[] = 'Famine';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingHistoricEvent'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingHistoricEvent'] == 1) {
     $pendingstates[] = 'Historic Event';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingInfrastructureFailure'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingInfrastructureFailure'] == 1) {
     $pendingstates[] = 'Infrastructure Failure';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingInvestment'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingInvestment'] == 1) {
     $pendingstates[] = 'Investment';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingLockdown'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingLockdown'] == 1) {
     $pendingstates[] = 'Lockdown';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingNaturalDisaster'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingNaturalDisaster'] == 1) {
     $pendingstates[] = 'Natural Disaster';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingOutbreak'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingOutbreak'] == 1) {
     $pendingstates[] = 'Outbreak';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingPirateAttack'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingPirateAttack'] == 1) {
     $pendingstates[] = 'Pirate Attack';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingPublicHoliday'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingPublicHoliday'] == 1) {
     $pendingstates[] = 'Public Holiday';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingRetreat'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingRetreat'] == 1) {
     $pendingstates[] = 'Retreat';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingRevolution'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingRevolution'] == 1) {
     $pendingstates[] = 'Revolution';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingTechnologicalLeap'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingTechnologicalLeap'] == 1) {
     $pendingstates[] = 'Technological Leap';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingTerroristAttack'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingTerroristAttack'] == 1) {
     $pendingstates[] = 'Terrorist Attack';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingTradeWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingTradeWar'] == 1) {
     $pendingstates[] = 'Trade War';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingUnderRepairs'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingUnderRepairs'] == 1) {
     $pendingstates[] = 'Under Repairs';
   }
-  if ($systemstatesdataarray[$factioncounter]['pendingWar'] == 1) {
+  if ($systemstatesdataarray[$statecounter]['pendingWar'] == 1) {
     $pendingstates[] = 'War';
   }
   $activestate = join(", ", $activestates);
   $recoveringstate = join(", ", $recoveringstates);
   $pendingstate = join(", ", $pendingstates);
 
-  if ($systemstatesdataarray[$factioncounter]['Name'] == 'Independent Defence Agency') {
+  if ($systemstatesdataarray[$statecounter]['Name'] == addslashes($highlight_pmfname)) {
     echo "[
-{v: '".$systemstatesdataarray[$factioncounter]['Name']."', p: {'className': 'highlightcol'}}, 
+{v: '".$systemstatesdataarray[$statecounter]['Name']."', p: {'className': 'highlightcol'}}, 
 {v: '".$recoveringstate."', p: {'className': 'highlightcol'}}, 
 {v: '".$activestate."', p: {'className': 'highlightcol'}}, 
 {v: '".$pendingstate."', p: {'className': 'highlightcol'}}
 ]";
   } else {
-    echo "['".addslashes($systemstatesdataarray[$factioncounter]['Name'])."', '".$recoveringstate."', '".$activestate."', '".$pendingstate."']";
+    echo "['".addslashes($systemstatesdataarray[$statecounter]['Name'])."', '".$recoveringstate."', '".$activestate."', '".$pendingstate."']";
   }
-  if ($factioncounter < ($factioncount-1)) {
+  if ($statecounter < ($statecount-1)) {
     echo ", ";
   }
   $activestates = array();
@@ -586,7 +590,7 @@ while($factioncounter < $factioncount) {
   $recoveringstate = '';
   $pendingstates = array();
   $pendingstate = '';
-  $factioncounter++;
+  $statecounter++;
 }
 ?>
 
@@ -652,7 +656,7 @@ while($factioncounter < $factioncount) {
 $conflictcount = count($systemconflictdataarray);
 $conflictcounter = 0;
 while($conflictcounter < $conflictcount) {
-  if (addslashes($systemconflictdataarray[$conflictcounter]['conflictfaction1name']) == 'Independent Defence Agency' || addslashes($systemconflictdataarray[$conflictcounter]['conflictfaction2name'] == 'Independent Defence Agency')) {
+  if (addslashes($systemconflictdataarray[$conflictcounter]['conflictfaction1name']) == addslashes($highlight_pmfname) || addslashes($systemconflictdataarray[$conflictcounter]['conflictfaction2name'] == addslashes($highlight_pmfname))) {
     echo "[
 {v: '".$systemconflictdataarray[$conflictcounter]['conflicttype']."', p: {'className': 'highlightcol'}}, 
 {v: '".$systemconflictdataarray[$conflictcounter]['conflictstatus']."', p: {'className': 'highlightcol'}}, 
@@ -699,7 +703,6 @@ while($conflictcounter < $conflictcount) {
 ?>
       </div>
     </div>
-    <?PHP // include('footer.inc.php'); ?>
-    </div>
+  </div>
 </body>
 </html>
