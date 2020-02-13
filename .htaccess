@@ -1,8 +1,16 @@
 Options +SymLinksIfOwnerMatch
 RewriteEngine On
 RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.+)$ /$1.php [L,QSA]
 
+ReWriteRule ^system/?$ system.php [NC]
+ReWriteRule ^systems/?$ systems.php [NC]
+ReWriteRule ^index/?$ index.php [NC]
+ReWriteRule ^home/?$ index.php [NC]
+ReWriteRule ^about/?$ about.php [NC]
+ReWriteRule ^contact/?$ contact.php [NC]
+ReWriteRule ^template/?$ template.php [NC]
+
+ReWriteRule ^api/input$ api/input-api.php [NC]
+ReWriteRule ^api/output$ api/output-api.php [NC]
+
+RewriteRule ^/?system/([^/d]+)/?$ system.php?id=$1 [L,QSA]
