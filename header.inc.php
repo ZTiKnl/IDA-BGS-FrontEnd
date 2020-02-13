@@ -7,11 +7,11 @@
         </div>
         Menu
         <div class="dropdown-content">
-          <a href="index.php">Home</a><br />
+          <a href="<?PHP echo $siteurl; ?>home">Home</a><br />
           <hr />
-          <a href="about.php">About</a><br />
+          <a href="<?PHP echo $siteurl; ?>about">About</a><br />
           <hr />
-          <a href="#">Contact</a>
+          <a href="<?PHP echo $siteurl; ?>contact">Contact</a><br />
         </div>
       </div>
     </div>

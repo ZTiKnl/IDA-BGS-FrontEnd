@@ -20,10 +20,10 @@ include('tickdata.inc.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Independent Defense Agency</title>
-  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <title><?PHP echo $sitetitle; ?></title>
+  <link rel="stylesheet" href="<?PHP echo $siteurl; ?>css/style.css" type="text/css">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="https://ida-bgs.ztik.nl/functions.inc.js"></script>
+  <script type="text/javascript" src="<?PHP echo $siteurl; ?>functions.inc.js"></script>
 </head>
 <body>
   <div id="page">

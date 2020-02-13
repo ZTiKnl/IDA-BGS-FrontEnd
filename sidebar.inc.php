@@ -48,7 +48,7 @@ if (!$oldtick) {
 
 
         <div id="sidebaritem">
-          <a href="systems.php">
+          <a href="<?PHP echo $siteurl; ?>systems/">
             <div id="sidebaritem-header">
               IDA System list
             </div>
@@ -82,9 +82,9 @@ if ($lastupdateresult = mysqli_query($con, $lastupdatequery)){
   }
 }
 if ($updatedaftertick) {
-  echo "<span style=\"font-weight: bold;\"><a href=\"system.php?id=".$row['systemaddress']."\">".$row['systemname']."</a></span><br />";
+  echo "<span style=\"font-weight: bold;\"><a href=\"".$siteurl."system/".$row['systemaddress']."\">".$row['systemname']."</a></span><br />";
 } else {
-  echo "<span style=\"font-weight: bold;\"><a href=\"system.php?id=".$row['systemaddress']."\" style=\"color: red;\">".$row['systemname']."</a></span><br />";
+  echo "<span style=\"font-weight: bold;\"><a href=\"".$siteurl."system/".$row['systemaddress']."\" style=\"color: red;\">".$row['systemname']."</a></span><br />";
 }
 ?>
           </div>
