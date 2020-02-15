@@ -1,3 +1,3 @@
 <div id="pagetitle">
-  <?PHP echo $pagetitle; ?>
+  <?PHP echo $pagetitle."\n"; ?>
 </div>
