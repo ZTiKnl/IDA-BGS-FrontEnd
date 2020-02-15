@@ -7,6 +7,7 @@ ReWriteRule ^systems/?$ systems.php [NC]
 ReWriteRule ^index/?$ index.php [NC]
 ReWriteRule ^home/?$ index.php [NC]
 ReWriteRule ^about/?$ about.php [NC]
+ReWriteRule ^aboutsite/?$ aboutsite.php [NC]
 ReWriteRule ^contact/?$ contact.php [NC]
 ReWriteRule ^template/?$ template.php [NC]
 
