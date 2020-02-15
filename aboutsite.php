@@ -1,25 +1,21 @@
 <?PHP
 $pagetitle = 'About Site';
 
-// connect to db
-include('../private/db.inc.php');
-$con = mysqli_connect($servername,$username,$password,$database) or die("SQL connection error");
-
 // include config variables
-include('config.inc.php');
+include('config/config.inc.php');
 
 // connect to db
 include($securedbcreds);
 $con = mysqli_connect($servername,$username,$password,$database) or die("SQL connection error");
 
 // include php functions
-include('functions.inc.php');
+include($siteincludefiles.'functions.inc.php');
 
 // include tickdata
-include('tickdata.inc.php');
+include($siteincludefiles.'tickdata.inc.php');
 
 // include Parsedown
-include('Parsedown.php');
+include($siteincludefiles.'Parsedown.php');
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +30,10 @@ include('Parsedown.php');
 </head>
 <body>
   <div id="page">
-    <?PHP include('header.inc.php'); ?>
+    <?PHP include($siteincludefiles.'header.inc.php'); ?>
     <div id="pagecontainer">
-      <?PHP include('sidebar.inc.php'); ?>
-      <?PHP include('pagetitle.inc.php'); ?>
+      <?PHP include($siteincludefiles.'sidebar.inc.php'); ?>
+      <?PHP include($siteincludefiles.'pagetitle.inc.php'); ?>
       <div id="articles">
 
         <div id="article">

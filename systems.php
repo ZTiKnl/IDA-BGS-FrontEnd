@@ -2,17 +2,17 @@
 $pagetitle = 'Systems overview';
 
 // include config variables
-include('config.inc.php');
+include('config/config.inc.php');
 
 // connect to db
 include($securedbcreds);
 $con = mysqli_connect($servername,$username,$password,$database) or die("SQL connection error");
 
 // include php functions
-include('functions.inc.php');
+include($siteincludefiles.'functions.inc.php');
 
 // include tickdata
-include('tickdata.inc.php');
+include($siteincludefiles.'tickdata.inc.php');
 ?>
 
 <!DOCTYPE html>
@@ -27,10 +27,10 @@ include('tickdata.inc.php');
 </head>
 <body>
   <div id="page">
-    <?PHP include('header.inc.php'); ?>
+    <?PHP include($siteincludefiles.'header.inc.php'); ?>
     <div id="pagecontainer">
-      <?PHP include('sidebar.inc.php'); ?>
-      <?PHP include('pagetitle.inc.php'); ?>
+      <?PHP include($siteincludefiles.'sidebar.inc.php'); ?>
+      <?PHP include($siteincludefiles.'pagetitle.inc.php'); ?>
       <div id="articles">
         <?PHP
           $systemquery = "SELECT systemname, systemaddress FROM systemlist ORDER BY systemname ASC";
@@ -226,7 +226,7 @@ include('tickdata.inc.php');
                       $factioncount = count($systemfactiondataarray);
                       $factioncounter = 0;
                       while($factioncounter < $factioncount) {
-                        if ($systemfactiondataarray[$factioncounter]['Name'] == addslashes($highlight_pmfname)) {
+                        if ($systemfactiondataarray[$factioncounter]['Name'] == addslashes($pmfname)) {
                           echo "[
                             {v: '".addslashes($systemfactiondataarray[$factioncounter]['Name'])."', p: {'className': 'highlightcol'}}, 
                             {v: '".$systemfactiondataarray[$factioncounter]['Government']."', p: {'className': 'highlightcol'}}, 
@@ -572,7 +572,7 @@ include('tickdata.inc.php');
                         $recoveringstate = join(", ", $recoveringstates);
                         $pendingstate = join(", ", $pendingstates);
 
-                        if ($systemstatesdataarray[$statecounter]['Name'] == addslashes($highlight_pmfname)) {
+                        if ($systemstatesdataarray[$statecounter]['Name'] == addslashes($pmfname)) {
                           echo "[
                             {v: '".$systemstatesdataarray[$statecounter]['Name']."', p: {'className': 'highlightcol'}}, 
                             {v: '".$recoveringstate."', p: {'className': 'highlightcol'}}, 
@@ -659,7 +659,7 @@ include('tickdata.inc.php');
                       $conflictcount = count($systemconflictdataarray);
                       $conflictcounter = 0;
                       while($conflictcounter < $conflictcount) {
-                        if (addslashes($systemconflictdataarray[$conflictcounter]['conflictfaction1name']) == addslashes($highlight_pmfname) || addslashes($systemconflictdataarray[$conflictcounter]['conflictfaction2name'] == addslashes($highlight_pmfname))) {
+                        if (addslashes($systemconflictdataarray[$conflictcounter]['conflictfaction1name']) == addslashes($pmfname) || addslashes($systemconflictdataarray[$conflictcounter]['conflictfaction2name'] == addslashes($pmfname))) {
                           echo "[
                             {v: '".$systemconflictdataarray[$conflictcounter]['conflicttype']."', p: {'className': 'highlightcol'}}, 
                             {v: '".$systemconflictdataarray[$conflictcounter]['conflictstatus']."', p: {'className': 'highlightcol'}}, 
