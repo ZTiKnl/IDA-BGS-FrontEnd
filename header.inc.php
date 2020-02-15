@@ -9,9 +9,9 @@
         <div class="dropdown-content">
           <a href="<?PHP echo $siteurl; ?>home">Home</a><br />
           <hr />
-          <a href="<?PHP echo $siteurl; ?>about">About</a><br />
+          <a href="<?PHP echo $siteurl; ?>about">About <?PHP echo $pmfshortname; ?></a><br />
           <hr />
-          <a href="<?PHP echo $siteurl; ?>contact">Contact</a><br />
+          <a href="<?PHP echo $siteurl; ?>aboutsite">About site</a><br />
         </div>
       </div>
     </div>
