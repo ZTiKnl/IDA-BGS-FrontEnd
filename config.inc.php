@@ -6,6 +6,6 @@ $sitetitle = 'Independent Defence Agency - BGS';
 $securedbcreds = '../private/db.inc.php';
 
 $highlight_pmfname = 'Independent Defence Agency';
-
+$pmfshortname = 'IDA';
 $systeminfluencewarningpercentage = 1;
 ?>
