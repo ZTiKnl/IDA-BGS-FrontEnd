@@ -169,9 +169,34 @@ body {
         color: #FFFFFF;
         width: 1000px;
         overflow-x: hidden;
+        overflow-y: hidden;
       }
         #articletitle {
           background-color: #335C81;
+          font-family: audiowide-regular-webfont;
+          font-size: 20px;
+          font-weight: normal;
+          color: #FFFFFF;
+          width: auto;
+          padding-top:3px;
+          padding-bottom:3px;
+          padding-left:10px;
+          padding-right:10px;
+        }
+        #articlewarning {
+          background-color: #5e0f18;
+          font-family: audiowide-regular-webfont;
+          font-size: 20px;
+          font-weight: normal;
+          color: #FFFFFF;
+          width: auto;
+          padding-top:3px;
+          padding-bottom:3px;
+          padding-left:10px;
+          padding-right:10px;
+        }
+        #articlenotice {
+          background-color: #184f11;
           font-family: audiowide-regular-webfont;
           font-size: 20px;
           font-weight: normal;
@@ -244,6 +269,8 @@ body {
         }
         #articlefooter {
           background-color: #FFFFFF;
+          font-style: italic;
+          font-size: 12px;
           color: #000000;
           width: auto;
           padding-top:3px;
