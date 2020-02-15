@@ -2,17 +2,17 @@
 $pagetitle = 'Home';
 
 // include config variables
-include('config.inc.php');
+include('config/config.inc.php');
 
 // connect to db
 include($securedbcreds);
 $con = mysqli_connect($servername,$username,$password,$database) or die("SQL connection error");
 
 // include php functions
-include('functions.inc.php');
+include($siteincludefiles.'functions.inc.php');
 
 // include tickdata
-include('tickdata.inc.php');
+include($siteincludefiles.'tickdata.inc.php');
 ?>
 
 <!DOCTYPE html>
@@ -27,10 +27,10 @@ include('tickdata.inc.php');
 </head>
 <body>
   <div id="page">
-    <?PHP include('header.inc.php'); ?>
+    <?PHP include($siteincludefiles.'header.inc.php'); ?>
     <div id="pagecontainer">
-      <?PHP include('sidebar.inc.php'); ?>
-      <?PHP include('pagetitle.inc.php'); ?>
+      <?PHP include($siteincludefiles.'sidebar.inc.php'); ?>
+      <?PHP include($siteincludefiles.'pagetitle.inc.php'); ?>
       <div id="articles">
 
         <?PHP
@@ -47,7 +47,7 @@ include('tickdata.inc.php');
                 $factioninfluencearray = array();
                 $checktickid = array();
                 $checktimestamps = array();
-                $activesnapshotquery = "SELECT tickid, timestamp, Influence FROM activesnapshot WHERE tickid = '$newtickid' AND isfaction = '1' AND factionaddress = '$systemaddress' AND Name = '".$highlight_pmfname."' ORDER BY tickid DESC LIMIT 1";
+                $activesnapshotquery = "SELECT tickid, timestamp, Influence FROM activesnapshot WHERE tickid = '$newtickid' AND isfaction = '1' AND factionaddress = '$systemaddress' AND Name = '".$pmfname."' ORDER BY tickid DESC LIMIT 1";
 
                 if ($activesnapshotresult = mysqli_query($con, $activesnapshotquery)){
                   if (mysqli_num_rows($activesnapshotresult) > 0) {
@@ -65,7 +65,7 @@ include('tickdata.inc.php');
                 } else {
                   $limiter = 2;
                 }
-                $snapshotquery = "SELECT tickid, timestamp, Influence FROM snapshots WHERE isfaction = '1' AND factionaddress = '$systemaddress' AND Name = '".$highlight_pmfname."' ORDER BY tickid DESC LIMIT ".$limiter; 
+                $snapshotquery = "SELECT tickid, timestamp, Influence FROM snapshots WHERE isfaction = '1' AND factionaddress = '$systemaddress' AND Name = '".$pmfname."' ORDER BY tickid DESC LIMIT ".$limiter; 
                 if ($snapshotresult = mysqli_query($con, $snapshotquery)){
                   if (mysqli_num_rows($snapshotresult) > 0) {
                     // use data from activesnapshot
@@ -128,7 +128,7 @@ include('tickdata.inc.php');
                                 $idacolumn = 0;
 
                                 while($row4 = mysqli_fetch_array($influencechangefactionresult, MYSQLI_ASSOC)) {
-                                  if ($row4['Name'] == $highlight_pmfname) {
+                                  if ($row4['Name'] == $pmfname) {
                                     $idacolumn = $influencechangefactioncounter;
                                   }
                                   echo "['".addslashes($row4['Name'])."',".round(($row4['Influence'] * 100), 2)."]";
@@ -187,7 +187,7 @@ include('tickdata.inc.php');
                 $datainactivesnapshot = false;
                 $datainsnapshots = false;
                 $factioninfluencearray = array();
-                $activesnapshotquery = "SELECT Influence FROM activesnapshot WHERE tickid = '$newtickid' AND isfaction = '1' AND factionaddress = '$systemaddress' AND Name = '".$highlight_pmfname."' ORDER BY tickid DESC LIMIT 1";
+                $activesnapshotquery = "SELECT Influence FROM activesnapshot WHERE tickid = '$newtickid' AND isfaction = '1' AND factionaddress = '$systemaddress' AND Name = '".$pmfname."' ORDER BY tickid DESC LIMIT 1";
                 if ($activesnapshotresult = mysqli_query($con, $activesnapshotquery)){
                   if (mysqli_num_rows($activesnapshotresult) > 0) {
                     $datainactivesnapshot = true;
@@ -201,7 +201,7 @@ include('tickdata.inc.php');
                 } else {
                   $limiter = 2;
                 }
-                $snapshotquery = "SELECT Influence FROM snapshots WHERE isfaction = '1' AND factionaddress = '$systemaddress' AND Name = '".$highlight_pmfname."' ORDER BY tickid DESC LIMIT $limiter"; 
+                $snapshotquery = "SELECT Influence FROM snapshots WHERE isfaction = '1' AND factionaddress = '$systemaddress' AND Name = '".$pmfname."' ORDER BY tickid DESC LIMIT $limiter"; 
                 if ($snapshotresult = mysqli_query($con, $snapshotquery)){
                   if (mysqli_num_rows($snapshotresult) > 0) {
                     // use data from activesnapshot
