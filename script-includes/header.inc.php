@@ -7,11 +7,17 @@
         </div>
         Menu
         <div class="dropdown-content">
-          <a href="<?PHP echo $siteurl; ?>home">Home</a><br />
+          <a href="<?PHP echo $siteurl; ?>home">
+            <div style="width: 100%;">Home</div>
+          </a>
           <hr />
-          <a href="<?PHP echo $siteurl; ?>about">About <?PHP echo $pmfshortname; ?></a><br />
+          <a href="<?PHP echo $siteurl; ?>about">
+            <div style="width: 100%;">About <?PHP echo $pmfshortname; ?></div>
+          </a>
           <hr />
-          <a href="<?PHP echo $siteurl; ?>aboutsite">About site</a><br />
+          <a href="<?PHP echo $siteurl; ?>aboutsite">
+          <div style="width: 100%;">About Site</div>
+          </a>
         </div>
       </div>
     </div>
