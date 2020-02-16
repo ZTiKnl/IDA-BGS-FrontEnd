@@ -23,7 +23,7 @@ include($siteincludefiles.'tickdata.inc.php');
   <title><?PHP echo $sitetitle; ?></title>
   <link rel="stylesheet" href="<?PHP echo $siteurl; ?>css/style.css" type="text/css">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="<?PHP echo $siteurl; ?>functions.inc.js"></script>
+  <script type="text/javascript" src="<?PHP echo $siteurl.$siteincludefiles; ?>functions.inc.js"></script>
 </head>
 <body>
   <div id="page">
@@ -83,13 +83,13 @@ include($siteincludefiles.'tickdata.inc.php');
                   }
                 }
         ?>
-        <div id="article">
+        <div class="article">
           <a href="<?PHP echo $siteurl; ?>system?id=<?PHP echo $systemaddress; ?>">
-            <div id="articletitle">
+            <div class="articletitle">
               <?PHP echo $systemname; ?>
             </div>
           </a>
-          <div id="articletabs">
+          <div class="articletabs">
             <button class="<?PHP echo "tablinkgroup".$systemcounter; ?>" onclick="openTab(event, '<?PHP echo $systemaddress."systemdetails"; ?>', '<?PHP echo "tablinkgroup".$systemcounter; ?>', '<?PHP echo "articletabcontent".$systemcounter; ?>')" id="<?PHP echo $systemaddress."_defaultTab"; ?>">System details</button>
             <button class="<?PHP echo "tablinkgroup".$systemcounter; ?>" onclick="openTab(event, '<?PHP echo $systemaddress."factiondetails"; ?>', '<?PHP echo "tablinkgroup".$systemcounter; ?>', '<?PHP echo "articletabcontent".$systemcounter; ?>')">Faction details</button>
             <button class="<?PHP echo "tablinkgroup".$systemcounter; ?>" onclick="openTab(event, '<?PHP echo $systemaddress."states"; ?>', '<?PHP echo "tablinkgroup".$systemcounter; ?>', '<?PHP echo "articletabcontent".$systemcounter; ?>')">States</button>
@@ -103,7 +103,7 @@ include($siteincludefiles.'tickdata.inc.php');
             ?> 
             <span class="<?PHP echo "tablinkgroup".$systemcounter; ?>" style="<?PHP echo $agestyle; ?>";>Last update: <?PHP echo $timediff; ?></span>
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
 
 
 

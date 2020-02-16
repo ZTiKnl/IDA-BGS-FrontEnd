@@ -24,7 +24,7 @@ include($siteincludefiles.'tickdata.inc.php');
   <title><?PHP echo $sitetitle; ?></title>
   <link rel="stylesheet" href="<?PHP echo $siteurl; ?>css/style.css" type="text/css">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="<?PHP echo $siteurl; ?>functions.inc.js"></script>
+  <script type="text/javascript" src="<?PHP echo $siteurl.$siteincludefiles; ?>functions.inc.js"></script>
 </head>
 <body>
   <div id="page">
@@ -34,16 +34,16 @@ include($siteincludefiles.'tickdata.inc.php');
       <?PHP include($siteincludefiles.'pagetitle.inc.php'); ?>
       <div id="articles">
 
-        <div id="article">
-          <div id="articletitle">
+        <div class="article">
+          <div class="articletitle">
             Article with text
           </div>
-          <div id="articletabs">
+          <div class="articletabs">
             <button class="tablinkgroup1" onclick="openTab(event, 'test', 'tablinkgroup1', 'articletabcontent')">Test</button>
             <button class="tablinkgroup1" onclick="openTab(event, 'text', 'tablinkgroup1', 'articletabcontent')">Text</button>
             <button class="tablinkgroup1" onclick="openTab(event, 'lorem', 'tablinkgroup1', 'articletabcontent')" id="defaultTab">Lorem Ipsum</button>
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
             <div id="lorem" class="articletabcontent">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br />
               Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br />
@@ -108,16 +108,16 @@ function drawChart() {
               document.getElementById("defaultTab").click();
             </script>
           </div>
-          <div id="articlefooter">
+          <div class="articlefooter">
             sidenotes, disclaimers and signatures
           </div>
         </div>
 
-        <div id="article">
-          <div id="articletitle">
+        <div class="article">
+          <div class="articletitle">
             Timeline of stuff
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
             <script type="text/javascript">
               google.charts.load('current', {'packages':['timeline']});
               google.charts.setOnLoadCallback(drawChart);
@@ -142,16 +142,16 @@ function drawChart() {
             </script>
             <div id="timeline" style="width: 990px;"></div>
           </div>
-          <div id="articlefooter">
+          <div class="articlefooter">
             sidenotes, disclaimers and signatures
           </div>
         </div>
 
-        <div id="article">
-          <div id="articletitle">
+        <div class="article">
+          <div class="articletitle">
             Table with stuff
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
             <script type="text/javascript">
               google.charts.load('current', {'packages':['table']});
               google.charts.setOnLoadCallback(drawTable);
@@ -175,18 +175,18 @@ function drawChart() {
             </script>
             <div id="table_div"></div>
           </div>
-          <div id="articlefooter">
+          <div class="articlefooter">
             sidenotes, disclaimers and signatures
           </div>
         </div>
 
 
 
-        <div id="article">
-          <div id="articletitle">
+        <div class="article">
+          <div class="articletitle">
             Treemap with stuff
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
             <script type="text/javascript">
               google.charts.load('current', {'packages':['treemap']});
               google.charts.setOnLoadCallback(drawChart);
@@ -237,17 +237,17 @@ function drawChart() {
             </script>
             <div id="treechart_div" style="width: 900px; height: 500px;"></div>
           </div>
-          <div id="articlefooter">
+          <div class="articlefooter">
             sidenotes, disclaimers and signatures
           </div>
         </div>
 
 
-        <div id="article">
-          <div id="articletitle">
+        <div class="article">
+          <div class="articletitle">
             Organisation chart with stuff
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
             <script type="text/javascript">
               google.charts.load('current', {packages:["orgchart"]});
               google.charts.setOnLoadCallback(drawChart);
@@ -279,16 +279,16 @@ function drawChart() {
             </head>
             <div id="orgchart_div"></div>
           </div>
-          <div id="articlefooter">
+          <div class="articlefooter">
             sidenotes, disclaimers and signatures
           </div>
         </div>
 
-        <div id="article">
-          <div id="articletitle">
+        <div class="article">
+          <div class="articletitle">
             3D Pie chart with stuff
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
             <script type="text/javascript">
               google.charts.load("current", {packages:["corechart"]});
               google.charts.setOnLoadCallback(drawChart);
@@ -314,16 +314,16 @@ function drawChart() {
             </script>
             <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
           </div>
-          <div id="articlefooter">
+          <div class="articlefooter">
             sidenotes, disclaimers and signatures
           </div>
         </div>
 
-        <div id="article">
-          <div id="articletitle">
+        <div class="article">
+          <div class="articletitle">
             Pie chart with stuff
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
             <script type="text/javascript">
               google.charts.load('current', {'packages':['corechart']});
               google.charts.setOnLoadCallback(drawChart);
@@ -349,16 +349,16 @@ function drawChart() {
             </script>
             <div id="piechart" style="width: 900px; height: 500px;"></div>
           </div>
-          <div id="articlefooter">
+          <div class="articlefooter">
             sidenotes, disclaimers and signatures
           </div>
         </div>
 
-        <div id="article">
-          <div id="articletitle">
+        <div class="article">
+          <div class="articletitle">
             Bubble chart with stuff
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
             <script type="text/javascript">
               google.charts.load('current', {'packages':['corechart']});
               google.charts.setOnLoadCallback(drawSeriesChart);
@@ -392,16 +392,16 @@ function drawChart() {
             </script>
             <div id="series_chart_div" style="width: 900px; height: 500px;"></div>
           </div>
-          <div id="articlefooter">
+          <div class="articlefooter">
             sidenotes, disclaimers and signatures
           </div>
         </div>
 
-        <div id="article">
-          <div id="articletitle">
+        <div class="article">
+          <div class="articletitle">
             Line chart with stuff
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
             <script type="text/javascript">
               google.charts.load('current', {'packages':['corechart']});
               google.charts.setOnLoadCallback(drawChart);
@@ -427,13 +427,13 @@ function drawChart() {
             </script>
             <div id="curve_chart" style="width: 900px; height: 500px"></div>
           </div>
-          <div id="articlefooter">
+          <div class="articlefooter">
             sidenotes, disclaimers and signatures
           </div>
         </div>
       </div>
     </div>
-    <?PHP include($siteincludefiles'footer.inc.php'); ?>
+    <?PHP include($siteincludefiles.'footer.inc.php'); ?>
   </div>
 </body>
 </html>

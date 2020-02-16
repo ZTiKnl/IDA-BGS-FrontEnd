@@ -26,7 +26,7 @@ include($siteincludefiles.'Parsedown.php');
   <title><?PHP echo $sitetitle; ?></title>
   <link rel="stylesheet" href="<?PHP echo $siteurl; ?>css/style.css" type="text/css">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="<?PHP echo $siteurl; ?>functions.inc.js"></script>
+  <script type="text/javascript" src="<?PHP echo $siteurl.$siteincludefiles; ?>functions.inc.js"></script>
 </head>
 <body>
   <div id="page">
@@ -36,11 +36,11 @@ include($siteincludefiles.'Parsedown.php');
       <?PHP include($siteincludefiles.'pagetitle.inc.php'); ?>
       <div id="articles">
 
-        <div id="article">
-          <div id="articletitle">
+        <div class="article">
+          <div class="articletitle">
             README for IDA-BGS FrontEnd website
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
             <?PHP
               $Parsedown = new Parsedown();
               $readmecontents = file_get_contents($siteurl.'README.md');

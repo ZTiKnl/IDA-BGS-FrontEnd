@@ -23,7 +23,7 @@ include($siteincludefiles.'tickdata.inc.php');
   <title><?PHP echo $sitetitle; ?></title>
   <link rel="stylesheet" href="<?PHP echo $siteurl; ?>css/style.css" type="text/css">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="<?PHP echo $siteurl; ?>functions.inc.js"></script>
+  <script type="text/javascript" src="<?PHP echo $siteurl.$siteincludefiles; ?>functions.inc.js"></script>
 </head>
 <body>
   <div id="page">
@@ -33,11 +33,11 @@ include($siteincludefiles.'tickdata.inc.php');
       <?PHP include($siteincludefiles.'pagetitle.inc.php'); ?>
       <div id="articles">
 
-        <div id="article">
-          <div id="articletitle">
+        <div class="article">
+          <div class="articletitle">
             Welcome to:
           </div>
-          <div id="articlecontents">
+          <div class="articlecontents">
             <span style="font-size: 25px;">The Independent Defence Agency<br /></span>
             <br />
             Our Agency is an Elite Dangerous player group formed by Lawful Veterans and starters alike, dedicated to making human-occupied space a fun and adventurous environment.<br />
@@ -110,7 +110,7 @@ include($siteincludefiles.'tickdata.inc.php');
             Looking forward to hearing from you Commanders!<br />
             o7
           </div>
-          <div id="articlefooter">
+          <div class="articlefooter">
             Ps: If you are here looking to repair stations, you are in the wrong place, this is their link: <a href="https://inara.cz/squadron/4242/">Operation IDA</a>
           </div>
         </div>
