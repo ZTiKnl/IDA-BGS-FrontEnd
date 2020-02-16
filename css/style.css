@@ -163,7 +163,7 @@ body {
       min-height: 100vh;
       overflow: auto;
     }
-      #article {
+      .article {
         margin-bottom: 50px;
         background-color: #FFFFFF;
         color: #FFFFFF;
@@ -171,7 +171,7 @@ body {
         overflow-x: hidden;
         overflow-y: hidden;
       }
-        #articletitle {
+        .articletitle {
           background-color: #335C81;
           font-family: audiowide-regular-webfont;
           font-size: 20px;
@@ -183,7 +183,7 @@ body {
           padding-left:10px;
           padding-right:10px;
         }
-        #articlewarning {
+        .articlewarning {
           background-color: #5e0f18;
           font-family: audiowide-regular-webfont;
           font-size: 20px;
@@ -195,7 +195,7 @@ body {
           padding-left:10px;
           padding-right:10px;
         }
-        #articlenotice {
+        .articlenotice {
           background-color: #184f11;
           font-family: audiowide-regular-webfont;
           font-size: 20px;
@@ -207,14 +207,14 @@ body {
           padding-left:10px;
           padding-right:10px;
         }
-          #articletabs {
+          .articletabs {
             min-height:35px;
             width:100%;
             margin:0;
             padding:0;
             border-bottom: 1px solid #335C81;
           }
-            #articletabs button {
+            .articletabs button {
               background-color: #FFFFFF;
               color: #335C81;
               font-weight: normal;
@@ -231,18 +231,18 @@ body {
               cursor: pointer;
               transition: 0.3s;
             }
-              #articletabs button:hover {
+              .articletabs button:hover {
                 font-weight: bold;
                 background-color: #335C81;
                 color: #FFFFFF;
               }
-              #articletabs button.active {
+              .articletabs button.active {
                 font-weight: bold;
                 background-color: #FFFFFF;
                 color: #335C81;
               }
 
-            #articletabs span {
+            .articletabs span {
               background-color: #FFFFFF;
               color: #335C81;
               font-weight: normal;
@@ -258,7 +258,7 @@ body {
               outline: none;
               height:5px;
             }
-        #articlecontents {
+        .articlecontents {
           background-color: #FFFFFF;
           color: #000000;
           width: auto;
@@ -267,7 +267,7 @@ body {
           padding-left:5px;
           padding-right:5px;
         }
-        #articlefooter {
+        .articlefooter {
           background-color: #FFFFFF;
           font-style: italic;
           font-size: 12px;
