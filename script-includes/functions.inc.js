@@ -18,3 +18,19 @@ function openTab(evt, tabName, tabid, classname) {
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+function toggleArticledisplay(elementid) {
+  var x = document.getElementById(elementid + '_articlecontents'); // article
+  var y = document.getElementById(elementid + '_articlefooter'); // footer
+  var z = document.getElementById(elementid + '_article'); // margin between items
+
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    y.style.display = "block";
+    z.style.marginBottom  = "50px";
+  } else {
+    x.style.display = "none";
+    y.style.display = "none";
+    z.style.marginBottom  = "10px";
+  }
+}
