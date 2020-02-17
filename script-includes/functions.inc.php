@@ -1,4 +1,17 @@
 <?php
+
+function timestampaftertick($timestamp) {
+  $result;
+  if (strtotime($date1) > strtotime($newtick)) {
+    $result = true;
+  } else {
+    $result = false;
+  }
+  // Print the result
+  return $result;
+  
+}
+
 function datediff($date1, $date2) {
 
   // Declare and define two dates
