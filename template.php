@@ -18,14 +18,7 @@ include($siteincludefiles.'tickdata.inc.php');
 
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?PHP echo $sitetitle; ?></title>
-  <link rel="stylesheet" href="<?PHP echo $siteurl; ?>css/style.css" type="text/css">
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="<?PHP echo $siteurl.$siteincludefiles; ?>functions.inc.js"></script>
-</head>
+<?PHP include($siteincludefiles.'head.inc.php'); ?>
 <body>
   <div id="page">
     <?PHP include($siteincludefiles.'header.inc.php'); ?>
