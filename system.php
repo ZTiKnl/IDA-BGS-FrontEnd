@@ -26,14 +26,7 @@ $systemaddress;
 
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?PHP echo $sitetitle; ?></title>
-  <link rel="stylesheet" href="<?PHP echo $siteurl; ?>css/style.css" type="text/css">
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="<?PHP echo $siteurl.$siteincludefiles; ?>functions.inc.js"></script>
-</head>
+<?PHP include($siteincludefiles.'head.inc.php'); ?>
 <body>
   <div id="page">
     <?PHP include($siteincludefiles.'header.inc.php'); ?>
@@ -121,7 +114,7 @@ $systemaddress;
 
 
 
-            <div id="<?PHP echo $systemaddress."systemdetails"; ?>" class="<?PHP echo "articletabcontent".$systemcounter; ?>" style="display: none; animation: fadeEffect 1s;">
+            <div id="<?PHP echo $systemaddress."systemdetails"; ?>" class="<?PHP echo "articletabcontent".$systemcounter; ?>">
               <?PHP
                 $nodata = true;
                 $systemdataarray;
@@ -191,7 +184,7 @@ $systemaddress;
 
 
 
-            <div id="<?PHP echo $systemaddress."factiondetails"; ?>" class="<?PHP echo "articletabcontent".$systemcounter; ?>" style="display: none; animation: fadeEffect 1s;">
+            <div id="<?PHP echo $systemaddress."factiondetails"; ?>" class="<?PHP echo "articletabcontent".$systemcounter; ?>">
               <?PHP
                 $nodata = true;
                 $systemfactiondataarray = array();
@@ -274,7 +267,7 @@ $systemaddress;
 
 
 
-            <div id="<?PHP echo $systemaddress."states"; ?>" class="<?PHP echo "articletabcontent".$systemcounter; ?>" style="display: none; animation: fadeEffect 1s;">
+            <div id="<?PHP echo $systemaddress."states"; ?>" class="<?PHP echo "articletabcontent".$systemcounter; ?>">
               <?PHP
                 $nodata = true;
                 $systemstatesdataarray = array();
@@ -629,7 +622,7 @@ $systemaddress;
 
 
 
-            <div id="<?PHP echo $systemaddress."conflicts"; ?>" class="<?PHP echo "articletabcontent".$systemcounter; ?>" style="display: none; animation: fadeEffect 1s;">
+            <div id="<?PHP echo $systemaddress."conflicts"; ?>" class="<?PHP echo "articletabcontent".$systemcounter; ?>">
               <?PHP
                 $nodata = true;
                 $systemconflictdataarray = array();
