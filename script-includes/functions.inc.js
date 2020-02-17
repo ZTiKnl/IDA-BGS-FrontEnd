@@ -19,18 +19,28 @@ function openTab(evt, tabName, tabid, classname) {
   evt.currentTarget.className += " active";
 }
 
-function toggleArticledisplay(elementid) {
+function toggleArticledisplay(elementid, setto) {
   var x = document.getElementById(elementid + '_articlecontents'); // article
   var y = document.getElementById(elementid + '_articlefooter'); // footer
   var z = document.getElementById(elementid + '_article'); // margin between items
 
-  if (x.style.display === "none") {
+  if (setto === 'none') {
+      x.style.display = "none";
+      y.style.display = "none";
+      z.style.marginBottom  = "10px";
+  } else if (setto === 'block') {
     x.style.display = "block";
     y.style.display = "block";
     z.style.marginBottom  = "50px";
   } else {
-    x.style.display = "none";
-    y.style.display = "none";
-    z.style.marginBottom  = "10px";
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      y.style.display = "block";
+      z.style.marginBottom  = "50px";
+    } else {
+      x.style.display = "none";
+      y.style.display = "none";
+      z.style.marginBottom  = "10px";
+    }
   }
 }
