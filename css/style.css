@@ -207,12 +207,26 @@ body {
           padding-left:10px;
           padding-right:10px;
         }
+        .articleinfo {
+          background-color: #b3b300;
+          font-family: audiowide-regular-webfont;
+          font-size: 20px;
+          font-weight: normal;
+          color: #FFFFFF;
+          width: auto;
+          padding-top:3px;
+          padding-bottom:3px;
+          padding-left:10px;
+          padding-right:10px;
+        }
           .articletabs {
             min-height:35px;
             width:100%;
             margin:0;
             padding:0;
             border-bottom: 1px solid #335C81;
+            display: none;
+            animation: fadeEffect 1s;
           }
             .articletabs button {
               background-color: #FFFFFF;
