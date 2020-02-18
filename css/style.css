@@ -308,6 +308,8 @@ body {
   to {opacity: 1;}
 }
 /*-------------------------------------------Google Charts------------------------------------*/
+.google-visualization-tooltip { pointer-events:none; }
+
 .leftalignheader {
   text-align: left;
 }
