@@ -11,7 +11,6 @@ Still very much under construction
 
 ## Disclaimer
 This FrontEnd is still under construction, ~~bugs~~ new features WILL appear unexpectedly.  
-There is no license on this code, feel free to use it as you see fit.  
 Patches are always welcome.  
 
 ## Thanks
