@@ -45,8 +45,8 @@ $systemaddress;
                 $datainactivesnapshot = false;
                 $datainsnapshots = false;
                 $datasnapshottickid = 0;
-                $activesnapshotquery = "SELECT * FROM activesnapshot WHERE tickid = '$newtickid' AND issystem = '1' AND StarSystem = '".addslashes($systemname)."' AND SystemAddress = '$systemaddress' ORDER BY tickid DESC LIMIT 1";
-                $snapshotquery = "SELECT * FROM snapshots WHERE issystem = '1' AND StarSystem = '".addslashes($systemname)."' AND SystemAddress = '$systemaddress' ORDER BY tickid DESC LIMIT 1";
+                $activesnapshotquery = "SELECT * FROM activesnapshot WHERE tickid = '$newtickid' AND issystem = '1' AND SystemAddress = '$systemaddress' ORDER BY tickid DESC LIMIT 1";
+                $snapshotquery = "SELECT * FROM snapshots WHERE issystem = '1' AND SystemAddress = '$systemaddress' ORDER BY tickid DESC LIMIT 1";
                 if ($activesnapshotresult = mysqli_query($con, $activesnapshotquery)){
                   if (mysqli_num_rows($activesnapshotresult) > 0) {
                     $datainactivesnapshot = true;
@@ -69,7 +69,7 @@ $systemaddress;
                 $lastupdatetime = '';
                 $timediff = '';
                 $updatedaftertick = '';
-                $lastupdatequery = "SELECT timestamp FROM systemdata WHERE StarSystem = '".addslashes($systemname)."' AND SystemAddress = '$systemaddress' ORDER BY timestamp DESC LIMIT 1";
+                $lastupdatequery = "SELECT timestamp FROM systemdata WHERE SystemAddress = '$systemaddress' ORDER BY timestamp DESC LIMIT 1";
                 if ($lastupdateresult = mysqli_query($con, $lastupdatequery)){
                   if (mysqli_num_rows($lastupdateresult) > 0) {
                     while($row2 = mysqli_fetch_array($lastupdateresult, MYSQLI_ASSOC)) {
@@ -84,6 +84,20 @@ $systemaddress;
                     }
                   }
                 }
+
+                $objectiveset = false;
+                $objectivearray = array();
+                $objectivequery = "SELECT * FROM objectives WHERE systemaddress = '$systemaddress' ORDER BY id ASC";
+                if ($objectiveresult = mysqli_query($con, $objectivequery)){
+                  if (mysqli_num_rows($objectiveresult) > 0) {
+                    while($row3 = mysqli_fetch_array($objectiveresult, MYSQLI_ASSOC)) {
+                      $objectivearray[] = $row3;
+                      $objectiveset = true;
+                    }
+                  }
+                }
+
+
         ?>
         <div class="article">
           <div class="articletitle">
@@ -96,6 +110,13 @@ $systemaddress;
             <button class="<?PHP echo "tablinkgroup".$systemcounter; ?>" onclick="openTab(event, '<?PHP echo $systemaddress."factiondetails"; ?>', '<?PHP echo "tablinkgroup".$systemcounter; ?>', '<?PHP echo "articletabcontent".$systemcounter; ?>')">Faction details</button>
             <button class="<?PHP echo "tablinkgroup".$systemcounter; ?>" onclick="openTab(event, '<?PHP echo $systemaddress."states"; ?>', '<?PHP echo "tablinkgroup".$systemcounter; ?>', '<?PHP echo "articletabcontent".$systemcounter; ?>')">States</button>
             <button class="<?PHP echo "tablinkgroup".$systemcounter; ?>" onclick="openTab(event, '<?PHP echo $systemaddress."conflicts"; ?>', '<?PHP echo "tablinkgroup".$systemcounter; ?>', '<?PHP echo "articletabcontent".$systemcounter; ?>')">Conflicts</button>
+            <?PHP
+              if ($objectiveset) {
+            ?>
+                <button class="<?PHP echo "tablinkgroup".$systemcounter; ?>" onclick="openTab(event, '<?PHP echo $systemaddress."objectives"; ?>', '<?PHP echo "tablinkgroup".$systemcounter; ?>', '<?PHP echo "articletabcontent".$systemcounter; ?>')">Objectives</button>
+            <?PHP
+              }
+            ?>
             <?PHP
               if (!$updatedaftertick ) {
                 $agestyle = 'color: red; font-weight: bold;';
@@ -702,6 +723,31 @@ $systemaddress;
                 }
               ?>
             </div>
+
+
+
+
+
+
+            <?PHP
+              if ($objectiveset) {
+            ?>
+            <div id="<?PHP echo $systemaddress."objectives"; ?>" class="<?PHP echo "articletabcontent".$systemcounter; ?>">
+              <?PHP
+                $nodata = true;
+                $systemfactiondataarray = array();
+              ?>
+              Objective data
+            </div>
+            <?PHP
+              }
+            ?>
+
+
+
+
+
+
 
             <script>
               document.getElementById("<?PHP echo $systemaddress."_defaultTab"; ?>").click();

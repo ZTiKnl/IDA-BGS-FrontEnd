@@ -75,6 +75,19 @@ include($siteincludefiles.'tickdata.inc.php');
                     }
                   }
                 }
+
+                $objectiveset = false;
+                $objectivearray = array();
+                $objectivequery = "SELECT * FROM objectives WHERE systemaddress = '$systemaddress' ORDER BY id ASC";
+                if ($objectiveresult = mysqli_query($con, $objectivequery)){
+                  if (mysqli_num_rows($objectiveresult) > 0) {
+                    while($row3 = mysqli_fetch_array($objectiveresult, MYSQLI_ASSOC)) {
+                      $objectivearray[] = $row3;
+                      $objectiveset = true;
+                    }
+                  }
+                }
+
         ?>
         <div class="article">
           <a href="<?PHP echo $siteurl; ?>system?id=<?PHP echo $systemaddress; ?>">
@@ -87,6 +100,13 @@ include($siteincludefiles.'tickdata.inc.php');
             <button class="<?PHP echo "tablinkgroup".$systemcounter; ?>" onclick="openTab(event, '<?PHP echo $systemaddress."factiondetails"; ?>', '<?PHP echo "tablinkgroup".$systemcounter; ?>', '<?PHP echo "articletabcontent".$systemcounter; ?>')">Faction details</button>
             <button class="<?PHP echo "tablinkgroup".$systemcounter; ?>" onclick="openTab(event, '<?PHP echo $systemaddress."states"; ?>', '<?PHP echo "tablinkgroup".$systemcounter; ?>', '<?PHP echo "articletabcontent".$systemcounter; ?>')">States</button>
             <button class="<?PHP echo "tablinkgroup".$systemcounter; ?>" onclick="openTab(event, '<?PHP echo $systemaddress."conflicts"; ?>', '<?PHP echo "tablinkgroup".$systemcounter; ?>', '<?PHP echo "articletabcontent".$systemcounter; ?>')">Conflicts</button>
+            <?PHP
+              if ($objectiveset) {
+            ?>
+                <button class="<?PHP echo "tablinkgroup".$systemcounter; ?>" onclick="openTab(event, '<?PHP echo $systemaddress."objectives"; ?>', '<?PHP echo "tablinkgroup".$systemcounter; ?>', '<?PHP echo "articletabcontent".$systemcounter; ?>')">Objectives</button>
+            <?PHP
+              }
+            ?>
             <?PHP
               if ($lastupdatebeforelasttick) {
                 $agestyle = 'color: red; font-weight: bold;';
@@ -682,6 +702,23 @@ include($siteincludefiles.'tickdata.inc.php');
                 }
               ?>
             </div>
+
+
+            <?PHP
+              if ($objectiveset) {
+            ?>
+            <div id="<?PHP echo $systemaddress."objectives"; ?>" class="<?PHP echo "articletabcontent".$systemcounter; ?>">
+              <?PHP
+                $nodata = true;
+                $systemfactiondataarray = array();
+              ?>
+              Objective data
+            </div>
+            <?PHP
+              }
+            ?>
+
+
 
 
 
