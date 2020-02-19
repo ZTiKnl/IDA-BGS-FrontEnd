@@ -329,7 +329,7 @@ include($siteincludefiles.'tickdata.inc.php');
                     } else {
                       if ($direction == 'up') {
                         echo "<div class=\"articlenotice\" onclick=\"toggleArticledisplay('".$systemaddress."_conflict')\">";
-                          if (!$conflictdatainactivesnapshot && $systemuptodate) {
+                          if ((!$conflictdatainactivesnapshot && $systemuptodate) || $conflictarray['conflictstatus'] == '') {
                             echo "<a href=\"".$siteurl."system/".$systemaddress."\" class=\"articlenotice\">".$systemname."</a> ".$conflictarray['conflicttype']." ended"; 
                           } else {
                             echo "<a href=\"".$siteurl."system/".$systemaddress."\" class=\"articlenotice\">".$systemname."</a> ".$conflictarray['conflicttype']." ongoing"; 
@@ -337,7 +337,7 @@ include($siteincludefiles.'tickdata.inc.php');
                         echo "</div>\n";
                       } elseif ($direction == 'down' || $direction == 'draw') {
                         echo "<div class=\"articlewarning\" onclick=\"toggleArticledisplay('".$systemaddress."_conflict')\">";
-                          if (!$conflictdatainactivesnapshot && $systemuptodate) {
+                          if ((!$conflictdatainactivesnapshot && $systemuptodate) || $conflictarray['conflictstatus'] == '') {
                             echo "<a href=\"".$siteurl."system/".$systemaddress."\" class=\"articlewarning\">".$systemname."</a> ".$conflictarray['conflicttype']." ended"; 
                           } else {
                             echo "<a href=\"".$siteurl."system/".$systemaddress."\" class=\"articlewarning\">".$systemname."</a> ".$conflictarray['conflicttype']." ongoing"; 
