@@ -225,7 +225,6 @@ body {
             margin:0;
             padding:0;
             border-bottom: 1px solid #335C81;
-            display: none;
             animation: fadeEffect 1s;
           }
             .articletabs button {
