@@ -8,6 +8,7 @@ Still very much under construction
 ## Other components  
 [IDA-BGS API](https://github.com/ZTiKnl/IDA-BGS-API)  
 [IDA-BGS EDMC plugin](https://github.com/ZTiKnl/IDA-BGS)  
+[IDA-BGS Bot](https://github.com/ZTiKnl/IDA-BGS-Bot)  
 
 ## Disclaimer
 This FrontEnd is still under construction, ~~bugs~~ new features WILL appear unexpectedly.  
