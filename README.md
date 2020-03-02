@@ -10,6 +10,10 @@ Still very much under construction
 [IDA-BGS EDMC plugin](https://github.com/ZTiKnl/IDA-BGS)  
 [IDA-BGS Bot](https://github.com/ZTiKnl/IDA-BGS-Bot)  
 
+## Unrelated plugins
+[IDA-AX](https://github.com/ZTiKnl/IDA-AX) - AX killcount display in EDMC  
+[IDA-Distress-Call](https://github.com/ZTiKnl/IDA-Distress-Call) - Call reinforcements when being interdicted/attacked by another player  
+
 ## Disclaimer
 This FrontEnd is still under construction, ~~bugs~~ new features WILL appear unexpectedly.  
 Patches are always welcome.  
