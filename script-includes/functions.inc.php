@@ -54,7 +54,7 @@ function datediff($date1, $date2) {
   $result = '';
   if ($years > 0) {
     if ($result != '') {$result .= ', ';}
-    $result .= $months."Y";
+    $result .= $years."Y";
   }
 
   if ($months > 0) {
